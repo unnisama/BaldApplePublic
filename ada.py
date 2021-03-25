@@ -1,6 +1,6 @@
 import requests
 from time import sleep
-import os.environ as envs
+import os
 CLIP_FRAMES = 6571
 framesf = open('fo.txt', 'r')
 frames = framesf.read().split("\n\n")
@@ -35,6 +35,6 @@ while True:
             if(frames[((i-1)*30)+27] != frames[((i-1)*30)+30]):
                 sundi("1792748042:AAF-WaMJMlQQrPGLDHY2Y4L5DUxCYYxcC0k", frames[((i-1)*30)+30], chat_id)
     sundi("1792748042:AAF-WaMJMlQQrPGLDHY2Y4L5DUxCYYxcC0k", "As a noob trying to prevent from flood wait 20minutes", chat_id)
-    if(envs.get('APP_URL') != None):
-        requests.get(envs["APP_URL"])
+    if(os.environ.get('APP_URL') != None):
+        requests.get(os.environ["APP_URL"])
     sleep(1200)
