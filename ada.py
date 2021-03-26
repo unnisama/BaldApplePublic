@@ -1,11 +1,23 @@
 import requests
 from time import sleep
 import os
-CLIP_FRAMES = 6571
-framesf = open('fo.txt', 'r')
-frames = framesf.read().split("\n\n")
-frames = [frame.replace("1","▅").replace("2","┊") for frame in frames]
 
+def cleanl(listi):
+    listi = [s for s in listi if s != ""]
+    return listi
+
+CLIP_FRAMES = 6571
+framesf = open('frameo.txt', 'r')
+framesf = framesf.read().split("\n\n")
+frames = []
+for d in framesf:
+    foa = ""
+    d = cleanl(d.split("\n"))
+    for r in d:
+        for c in cleanl(r.split("-")):
+            foa += chr(int(c)+10240)
+        foa += "\n"
+    frames.append(foa)
 chat_id = "-1001162248544"
 def sundi(bot, text,id):
     resp = requests.get("https://api.telegram.org/bot"+bot+"/editMessageText?chat_id="+id+"&message_id=2&text="+text)
