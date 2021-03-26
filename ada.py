@@ -48,5 +48,6 @@ while True:
                 sundi("1792748042:AAF-WaMJMlQQrPGLDHY2Y4L5DUxCYYxcC0k", frames[((i-1)*30)+30], chat_id)
     sundi("1792748042:AAF-WaMJMlQQrPGLDHY2Y4L5DUxCYYxcC0k", "As a noob trying to prevent from flood wait 20minutes", chat_id)
     if(os.environ.get('APP_URL') != None):
-        requests.get(os.environ["APP_URL"])
-    sleep(1200)
+        for d in range(20):
+            requests.get(os.environ["APP_URL"])
+            sleep(60)
