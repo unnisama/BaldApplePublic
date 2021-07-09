@@ -1,6 +1,7 @@
 import requests
 from time import sleep
 import os
+from datetime import datetime
 
 def cleanl(listi):
     listi = [s for s in listi if s != ""]
@@ -46,7 +47,7 @@ while True:
                 sundi("Bot9token", frames[((i-1)*30)+27], chat_id)
             if(frames[((i-1)*30)+27] != frames[((i-1)*30)+30]):
                 sundi("Bot10token", frames[((i-1)*30)+30], chat_id)
-    sundi("Bot10token", "As a noob trying to prevent from flood wait 20minutes", chat_id)
+    sundi("Bot10token", "As a noob trying to prevent from flood wait 20 minutes.\nLast Sleep: {}".format(datetime.now().strftime("%H:%M:%S")), chat_id)
     if(os.environ.get('APP_URL') != None):
         for d in range(20):
             requests.get(os.environ["APP_URL"])
