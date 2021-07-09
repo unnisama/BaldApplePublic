@@ -1,1 +1,1 @@
-worker: python3 ada.py
+worker: python3 Bot.py
